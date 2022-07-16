@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Database Siswa</title>
+</head>
+<body>
+<div align="center">
+    <h1>Data Siswa Sekolah</h1>
+    <a href="/new">Buat Data Baru</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama Siswa</th>
+            <th>Tahun Lahir</th>
+            <th>Alamat</th>
+            <th>Nomer HP</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="datasiswa, itrStat : ${listDataSiswas}" th:class="${itrStat.even}? 'even_css_class':'odd_css_class'">
+            <td th:text="${itrStat.index + 1}">Nomer</td>
+            <td th:text="${datasiswa.nama_siswa}">Nama Siswa</td>
+            <td th:text="${datasiswa.tahun_lahir}">Tahun Lahir</td>
+            <td th:text="${datasiswa.alamat}">Alamat</td>
+            <td th:text="${datasiswa.nomer_hp}">Nomer HP</td>
+            <td>
+                <a th:href="@{'/edit/' + ${datasiswa.id}}">Ubah</a>
+                &nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${datasiswa.id}}">Hapus</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

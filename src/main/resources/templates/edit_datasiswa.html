@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Edit Data</title>
+</head>
+<body>
+<div align="center">
+    <h1 th:object="${datasiswa}">Edit Data <span th:text="*{id}"></span></h1>
+    <br />
+    <form action="#" th:action="@{/save}" th:object="${datasiswa}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr style="display: none;">
+                <td>No:</td>
+                <td>
+                    <input type="text" th:field="*{id}" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>Nama Siswa:</td>
+                <td>
+                    <input type="text" th:field="*{nama_siswa}" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>Tahun Lahir:</td>
+                <td><input type="date" th:field="*{tahun_lahir}" required/></td>
+            </tr>
+            <tr>
+                <td>Alamat:</td>
+                <td><input type="text" th:field="*{alamat}" required/></td>
+            </tr>
+            <tr>
+                <td>Nomer HP:</td>
+                <td><input type="number" th:field="*{nomer_hp}" required/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Simpan</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
